@@ -1,34 +1,31 @@
 # Processo Logico
 
 ## Const Age - Validazione input
-- **Aspettativa**: Il valore di `age` deve essere numerico e intero.
-- **Implementazione**: Utilizzo di `parseInt()` per convertire l'età dell'utente in un intero.
-- **Controllo**: Uso di `if` per verificare se `age` è `isNaN`. Aggiungo un controllo per mostrare un alert se `age < 16`, richiedendo la presenza di un genitore.
+Il valore di age mi aspetto che sia numerico e intero, pertanto nella const age dove richiedo l'età all'utente dovrò assicurarmi di convertirlo in intero utilizzando `parseInt()`. Successivamente tramite `if` dovrò verificare se `age` è `isNaN` (Una chicca potrebbe essere aggiungere un `if` in modo tale che se `age < 16` spunti l'alert di compilare con la presenza di un genitore).
 
 ## Const KM - Validazione input
-- **Aspettativa**: Il valore per KM può essere sia intero che float.
-- **Implementazione**: Conversione dell'input da stringa a numero usando `parseFloat()`, evitando problemi se l'utente inserisce un numero float.
-- **Controllo**: Verifico tramite `if` se `KM` è `isNaN` e se il valore è positivo (KM > 0).
+Per il valore KM potrebbe sia essere un Int che float, pertanto la conversione da stringa a numero la farò per sicurezza utilizzando `parseFloat()` per evitare che l'utente inserisca un numero float e io converta la stringa con `parseInt()` tagliando di conseguenza il valore. Sempre con un'istruzione condizionale verificherò se KM `isNaN()`.
+Posso inoltre implementare un controllo sul numero di KM per verificare che l'utente non imposti valori negativi (banalmente un `if` che controlla se KM maggiore di 0).
 
 ## Verifica di input parzialmente numerici
-- **Problema**: Input come "123abc" possono causare errori.
-- **Soluzione**: Convertire l'input in intero o float e confrontare il risultato con l'input originale. Se differiscono, significa che l'input originale conteneva caratteri non numerici.
+Si presenta un potenziale problema: Per entrambi gli input potrei potenzialmente inserire un input parzialmente numerico (123abc) questo renderebbe fin troppo facile "rompere" il programma.
+Dovrò quindi implementare un controllo. L'idea è quella di convertire l'input in intero o float tramite `parseInt()` - `parseFloat()` e successivamente confrontare l'input numerico con l'input stringa, se sono differenti ciò vuol dire che l'input originale conteneva caratteri non numerici.
 
 ## Verifica per valori nulli o vuoti
-- **Implementazione**: Controllo se l'input dell'utente è `null` o vuoto (`input.trim() === ""`) usando un'istruzione condizionale.
+Dovrò inoltre verificare che l'input dell'utente non sia `NULL` o vuoto...posso utilizzare un'istruzione condizionale per verificare se input stringa dell'utente è `===null || input.trim() === ""` ed in base a questo, scartare l'input.
 
 ## Verifica valori troppo alti (es: KM = 99999999 o Età = 929121)
 
 ## Const prezzoOriginale
-- **Uso**: Serve per calcolare il prezzo del biglietto basato su `KM * 0.21`, in assenza di sconti.
+Questa variabile mi serve per calcolare il prezzo del biglietto che è `KM * 0.21`, nel caso in cui non vengano applicati sconti.
 
 ## Const TwentyDiscount
-- **Formula**: Applicata da un'istruzione condizionale se l'utente ha diritto ad uno sconto del 20%. Utilizzo di `prezzoOriginale * (20/100)` per calcolare il 20% di sconto su `prezzoOriginale`.
+Questa formula viene applicata da un'istruzione condizionale, nel caso in cui l'utente abbia diritto ad uno sconto del 20%. La formula dovrà essere: `prezzoOriginale * (20/100)` questo mi consente di calcolare il 20% di prezzoOriginale.
 
 ## Const FortyDiscount
-- **Formula**: Applicata da un'istruzione condizionale se l'utente ha diritto ad uno sconto del 40%. Utilizzo di `prezzoOriginale * (40/100)` per calcolare il 40% di sconto su `prezzoOriginale`.
+Questa formula viene applicata da un'istruzione condizionale, nel caso in cui l'utente abbia diritto ad uno sconto del 40%. La formula dovrà essere: `prezzoOriginale * (40/100)` questo mi consente di calcolare il 40% di prezzoOriginale.
 
 ## Output pulito
-- **Metodo**: Uso di `.toFixed(2)` per arrotondare il prezzo a due cifre decimali.
+Per pulire l'output dovrò utilizzare `.toFixed(2)` in questo specifico caso per arrotondare a 2 cifre decimali il prezzo calcolato tramite la formula utilizzata.
 
-Dopo tutte queste considerazioni, il programma dovrebbe essere a prova di proiettile.
+Dopo tutte queste considerazioni, dovrei teoricamente aver creato un programma a prova di proiettile.
