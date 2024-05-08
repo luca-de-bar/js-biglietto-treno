@@ -1,33 +1,39 @@
-﻿import "./style.css";
+const age = prompt("Inserisci la tua età");
+const age_int = parseInt(age);
 
-("use strict");
+// Validazione input, se age buono, procede con KM e valida anche quello.
+if (isNaN(age) || age === age_int) {
+    window.alert("Inserisci un valore numerico (ES : 20,18,55)");
+} else if (age_int <= 0) {
+    window.alert("Inserisci un'età valida");  
+} else if (age === null || age.trim() === ""){
+   window.alert("Inserisci un valore.")
+}
+else {
+    const KM = prompt("Quanti KM vuoi percorrere?");
+    const KM_float = parseFloat(KM);
 
-const km = prompt("Quanti KM vuoi percorrere?");
-const age = prompt("Quanti anni hai?");
-const kmNumeric = parseFloat(km); 
-const ageNumeric = parseInt(age); 
+    if (isNaN(KM) || KM === KM_float) {
+        window.alert("Inserisci un valore numerico (ES: 200,123.30,500)");
+    } else if (KM_float <= 0) {
+        window.alert("Inserisci un numero di KM valido");
+    } else if (KM === null || KM.trim() === "") {
+        window.alert("Inserisci un valore.")
+    }    
+    else {
+        const prezzoOriginale = (KM_float * 0.21).toFixed(2);
+        const TwentyDiscount = (parseFloat(prezzoOriginale) * (20 / 100)).toFixed(2);
+        const FortyDiscount = (parseFloat(prezzoOriginale) * (40 / 100)).toFixed(2);
 
-if (isNaN(kmNumeric) || isNaN(ageNumeric)) {
-  console.log("Inserisci valori numerici validi per KM e per l'età.");
-} else {
-  const pricePerKm = 0.21;
-  const formula = kmNumeric * pricePerKm;
-
-  if (ageNumeric < 18) {
-    const discount = (formula * 20) / 100;
-    const discountedPrice = formula - discount;
-    console.log(
-      `Hai diritto ad uno sconto del 20%, il prezzo originale è di ${formula.toFixed(2)}€ ma tu pagherai solamente ${discountedPrice.toFixed(2)}€`,
-    );
-  } else if (ageNumeric >= 65) {
-    const discount = (formula * 40) / 100;
-    const discountedPrice = formula - discount;
-    console.log(
-      `Hai diritto ad uno sconto del 40%, il prezzo originale è di ${formula.toFixed(2)}€ ma tu pagherai solamente ${discountedPrice.toFixed(2)}€`,
-    );
-  } else {
-    console.log(
-      `Non hai diritto a nessuno sconto, il prezzo totale è di ${formula.toFixed(2)}€`,
-    );
-  }
+        if (age_int < 18) {
+            window.alert(`Hai diritto ad uno sconto! Il prezzo originale è ` +
+                `${prezzoOriginale}€ ma tu pagherai solamente ${TwentyDiscount}€!`);
+        } else if (age_int >= 65) {
+            window.alert(`Hai diritto ad uno sconto! Il prezzo originale è ` +
+                `${prezzoOriginale}€ ma tu pagherai solamente ${FortyDiscount}€!`);
+        }
+        else {
+            window.alert(`Il costo del viaggio sarà di ${prezzoOriginale}€!`)   
+          }  
+    }
 }
