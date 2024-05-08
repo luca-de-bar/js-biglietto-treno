@@ -16,6 +16,8 @@ Dovrò quindi implementare un controllo. l'idea è quella di convertire l'input 
 #Verifica per valori nulli o vuoti
 Dovro inoltre verificare che l'input dell'utente non sia NULL o vuoto...posso utilizzare un istruzione condizionale per verificare se input stringa dell'utente è ===null || input.trim() === "" ed in base a questo, scartare l'input.
 
+#Verifica valori troppo alti (es: KM = 99999999 o Età=929121)
+
 #Const prezzoOriginale
 Questa variabile mi serve per calcolare il prezzo del biglietto che è KM * 0.21, nel caso in cui non vengano applicati sconti.
 
