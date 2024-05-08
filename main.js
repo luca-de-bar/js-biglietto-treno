@@ -2,7 +2,7 @@ const age = prompt("Inserisci la tua età");
 const age_int = parseInt(age);
 
 // Validazione input, se age buono, procede con KM e valida anche quello.
-if (isNaN(age) || age === age_int) {
+if (isNaN(age) || age != age_int) {
     window.alert("Inserisci un valore numerico (ES : 20,18,55)");
 } else if (age_int <= 0 || age_int >= 110) {
     window.alert("Inserisci un'età valida");  
@@ -13,7 +13,7 @@ else {
     const KM = prompt("Quanti KM vuoi percorrere?");
     const KM_float = parseFloat(KM);
 
-    if (isNaN(KM) || KM === KM_float) {
+    if (isNaN(KM) || KM != KM_float) {
         window.alert("Inserisci un valore numerico (ES: 200,123.30,500)");
     } else if (KM_float <= 0 || KM_float>=999) {
         window.alert("Non puoi fare 0KM o meno..e se hai inserito un numero assurdo" +
